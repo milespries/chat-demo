@@ -1,5 +1,5 @@
 # Nice Chat
-![Demo Screenshot](images/image2.png)
+![Demo Screenshot](images/image3.png)
 A responsive mock chat workspace demo with channels and DMs.
 
 ## Technologies Used

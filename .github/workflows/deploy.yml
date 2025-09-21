@@ -1,5 +1,5 @@
-# .github/workflows/deploy.yml
 name: Deploy to GitHub Pages
+
 on:
   push:
     branches: [main]
@@ -14,15 +14,28 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      # Install pnpm
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      # Install Node and enable pnpm cache (requires pnpm-lock.yaml)
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
-      - run: npm ci
-      - run: npm run build
+          cache: 'pnpm'
+          cache-dependency-path: pnpm-lock.yaml
+
+      # Install deps & build
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm build
+
+      # Upload the built site
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
+
   deploy:
     needs: build
     runs-on: ubuntu-latest
