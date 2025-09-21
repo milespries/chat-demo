@@ -6,6 +6,8 @@ A responsive mock chat workspace demo with channels and DMs.
 - React 19 + Vite
 - TanStack Router (file-based routes)
 - Tailwind CSS 4
+- Hash Router for GitHub Pages
+- PNPM (package manager)
 - Lucide React (icons)
 
 ## How to Run
@@ -15,9 +17,8 @@ A responsive mock chat workspace demo with channels and DMs.
 4. Open `http://localhost:3000`
 
 ## Features
-- Responsive glass UI tuned for mobile and desktop
+- Responsive glass style UI
 - Channels and Direct Messages with seeded mock threads
 - Interactive composer that appends messages locally
-- Simple routes: landing `/` and interactive demo `/demo`
 - Clean, modern color palette with accessible iconography
 
