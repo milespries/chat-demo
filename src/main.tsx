@@ -1,16 +1,19 @@
+// src/main.ts
 import { StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
 import { RouterProvider, createRouter } from '@tanstack/react-router'
+import { createHashHistory } from '@tanstack/history'
 
-// Import the generated route tree
+// Import the generated route tree (from the TanStack plugin)
 import { routeTree } from './routeTree.gen'
 
 import './styles.css'
-import reportWebVitals from './reportWebVitals.ts'
+import reportWebVitals from './reportWebVitals'
 
-// Create a new router instance
+// Create a new router instance with hash history for GitHub Pages
 const router = createRouter({
   routeTree,
+  history: createHashHistory(), // <- key change for GH Pages
   context: {},
   defaultPreload: 'intent',
   scrollRestoration: true,
@@ -36,7 +39,4 @@ if (rootElement && !rootElement.innerHTML) {
   )
 }
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals()
